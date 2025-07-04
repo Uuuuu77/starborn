@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -22,47 +21,49 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-cosmic-950/20 via-cosmic-900/40 to-background"></div>
         
         {/* Animated background elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-2 h-2 bg-stellar-400 rounded-full animate-stellar-pulse"></div>
-          <div className="absolute top-40 right-32 w-1.5 h-1.5 bg-cosmic-400 rounded-full animate-stellar-pulse" style={{animationDelay: '1s'}}></div>
-          <div className="absolute bottom-32 left-40 w-1 h-1 bg-stellar-300 rounded-full animate-stellar-pulse" style={{animationDelay: '2s'}}></div>
-          <div className="absolute top-60 left-1/2 w-1.5 h-1.5 bg-cosmic-300 rounded-full animate-stellar-pulse" style={{animationDelay: '3s'}}></div>
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-20 w-2 h-2 bg-stellar-400 rounded-full animate-stellar-pulse hidden sm:block"></div>
+          <div className="absolute top-40 right-32 w-1.5 h-1.5 bg-cosmic-400 rounded-full animate-stellar-pulse delay-1000 hidden md:block"></div>
+          <div className="absolute bottom-32 left-40 w-1 h-1 bg-stellar-300 rounded-full animate-stellar-pulse delay-2000 hidden lg:block"></div>
+          <div className="absolute top-60 left-1/2 w-1.5 h-1.5 bg-cosmic-300 rounded-full animate-stellar-pulse delay-3000 hidden sm:block"></div>
         </div>
 
-        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+        <div className="relative z-10 text-center container-fluid section-padding max-w-6xl mx-auto">
           <div className="animate-fade-in">
-            <div className="flex items-center justify-center mb-6">
-              <Crown className="w-16 h-16 text-stellar-400 mr-4 animate-stellar-pulse" />
-              <Star className="w-12 h-12 text-cosmic-400 animate-cosmic-drift" />
+            <div className="flex items-center justify-center mb-6 sm:mb-8">
+              <Crown className="w-12 h-12 sm:w-16 sm:h-16 text-stellar-400 mr-3 sm:mr-4 animate-stellar-pulse" />
+              <Star className="w-8 h-8 sm:w-12 sm:h-12 text-cosmic-400 animate-cosmic-drift" />
             </div>
             
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 stellar-text">
+            <h1 className="heading-display mb-6 sm:mb-8 animate-fade-in-up delay-200">
               Starborn Dominion
             </h1>
             
-            <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-4xl mx-auto leading-relaxed">
-              A post-Earth civilization founded on the principles of <span className="text-stellar-400 font-semibold">balanced power</span>, 
-              <span className="text-cosmic-400 font-semibold"> merit-based leadership</span>, and 
-              <span className="text-stellar-400 font-semibold"> universal rights</span> for all sentient beings.
+            <p className="body-large text-foreground/85 mb-8 sm:mb-10 max-w-4xl mx-auto animate-fade-in-up delay-300">
+              A post-Earth civilization founded on the principles of{' '}
+              <span className="text-stellar-400 font-semibold">balanced power</span>,{' '}
+              <span className="text-cosmic-400 font-semibold">merit-based leadership</span>, and{' '}
+              <span className="text-stellar-400 font-semibold">universal rights</span>{' '}
+              for all sentient beings.
             </p>
             
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
-              <Badge variant="secondary" className="px-4 py-2 text-sm">
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-12 animate-fade-in-up delay-400">
+              <Badge variant="secondary" className="px-3 py-2 text-sm hover:bg-secondary/80 transition-colors duration-200">
                 <Users className="w-4 h-4 mr-2" />
                 Constitutional Monarchy
               </Badge>
-              <Badge variant="secondary" className="px-4 py-2 text-sm">
+              <Badge variant="secondary" className="px-3 py-2 text-sm hover:bg-secondary/80 transition-colors duration-200">
                 <Shield className="w-4 h-4 mr-2" />
                 Guardian Order
               </Badge>
-              <Badge variant="secondary" className="px-4 py-2 text-sm">
+              <Badge variant="secondary" className="px-3 py-2 text-sm hover:bg-secondary/80 transition-colors duration-200">
                 <Gavel className="w-4 h-4 mr-2" />
                 Merit-Based Rule
               </Badge>
             </div>
 
-            <div className="prose prose-lg prose-invert max-w-4xl mx-auto mb-12">
-              <blockquote className="border-l-4 border-stellar-400 pl-6 italic text-lg text-foreground/90">
+            <div className="max-w-4xl mx-auto mb-12 animate-fade-in-up delay-500">
+              <blockquote className="border-l-4 border-stellar-400 pl-4 sm:pl-6 italic text-fluid-lg text-foreground/90 text-left sm:text-center">
                 "We, the sentient peoples of the Starborn Dominion—united in purpose, diversity, and cosmic vision—do hereby ordain and establish this Constitution to secure justice, liberty, and prosperity for all our worlds and to sustain our legacy across generations."
               </blockquote>
             </div>
@@ -71,71 +72,89 @@ const Index = () => {
       </section>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-16">
+      <div className="container-fluid section-padding">
         <Tabs value={activeSection} onValueChange={setActiveSection} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-12 bg-card/50 backdrop-blur-sm">
-            <TabsTrigger value="overview" className="flex items-center gap-2">
-              <Globe className="w-4 h-4" />
-              Overview
-            </TabsTrigger>
-            <TabsTrigger value="constitution" className="flex items-center gap-2">
-              <BookOpen className="w-4 h-4" />
-              Constitution
-            </TabsTrigger>
-            <TabsTrigger value="hierarchy" className="flex items-center gap-2">
-              <Shield className="w-4 h-4" />
-              Orders & Ranks
-            </TabsTrigger>
-            <TabsTrigger value="principles" className="flex items-center gap-2">
-              <Zap className="w-4 h-4" />
-              Core Principles
-            </TabsTrigger>
-          </TabsList>
+          <div className="mb-8 sm:mb-12 overflow-x-auto">
+            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 gap-1 bg-card/50 backdrop-blur-sm p-1 rounded-lg min-w-max sm:min-w-0">
+              <TabsTrigger 
+                value="overview" 
+                className="flex items-center gap-2 px-3 py-2 text-xs sm:text-sm whitespace-nowrap data-[state=active]:bg-primary/20 data-[state=active]:text-stellar-400"
+              >
+                <Globe className="w-4 h-4" />
+                <span className="hidden sm:inline">Overview</span>
+                <span className="sm:hidden">Info</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="constitution" 
+                className="flex items-center gap-2 px-3 py-2 text-xs sm:text-sm whitespace-nowrap data-[state=active]:bg-primary/20 data-[state=active]:text-stellar-400"
+              >
+                <BookOpen className="w-4 h-4" />
+                <span className="hidden sm:inline">Constitution</span>
+                <span className="sm:hidden">Law</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="hierarchy" 
+                className="flex items-center gap-2 px-3 py-2 text-xs sm:text-sm whitespace-nowrap data-[state=active]:bg-primary/20 data-[state=active]:text-stellar-400"
+              >
+                <Shield className="w-4 h-4" />
+                <span className="hidden sm:inline">Orders & Ranks</span>
+                <span className="sm:hidden">Orders</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="principles" 
+                className="flex items-center gap-2 px-3 py-2 text-xs sm:text-sm whitespace-nowrap data-[state=active]:bg-primary/20 data-[state=active]:text-stellar-400"
+              >
+                <Zap className="w-4 h-4" />
+                <span className="hidden sm:inline">Core Principles</span>
+                <span className="sm:hidden">Principles</span>
+              </TabsTrigger>
+            </TabsList>
+          </div>
 
-          <TabsContent value="overview">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-              <Card className="constitution-section cosmic-glow">
+          <TabsContent value="overview" className="space-y-8">
+            <div className="grid-responsive animate-fade-in">
+              <Card className="card-feature animate-fade-in-up delay-100">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                  <CardTitle className="flex items-center gap-2 text-fluid-xl">
                     <Crown className="w-6 h-6 text-stellar-400" />
                     The Emperor
                   </CardTitle>
-                  <CardDescription>Guardian of Constitutional Order</CardDescription>
+                  <CardDescription className="body-base">Guardian of Constitutional Order</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-foreground/80">
+                  <p className="text-sm text-foreground/80 leading-relaxed">
                     Serves 33-year terms as symbolic head of state and cosmic peace keeper. 
                     Succession through merit-based Empyreal Trials, not inheritance.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="constitution-section cosmic-glow">
+              <Card className="card-feature animate-fade-in-up delay-200">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                  <CardTitle className="flex items-center gap-2 text-fluid-xl">
                     <Users className="w-6 h-6 text-cosmic-400" />
                     Celestial Council
                   </CardTitle>
-                  <CardDescription>Wisdom of the Colonies</CardDescription>
+                  <CardDescription className="body-base">Wisdom of the Colonies</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-foreground/80">
+                  <p className="text-sm text-foreground/80 leading-relaxed">
                     9-13 representatives from major planetary colonies and key disciplines, 
                     serving as constitutional guardians and imperial advisors.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="constitution-section cosmic-glow">
+              <Card className="card-feature animate-fade-in-up delay-300">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                  <CardTitle className="flex items-center gap-2 text-fluid-xl">
                     <Shield className="w-6 h-6 text-stellar-400" />
                     Guardian Order
                   </CardTitle>
-                  <CardDescription>Protectors of Peace</CardDescription>
+                  <CardDescription className="body-base">Protectors of Peace</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-foreground/80">
+                  <p className="text-sm text-foreground/80 leading-relaxed">
                     Philosopher-warriors trained in ethics, diplomacy, and defense. 
                     Forbidden from politics, sworn only to constitutional harmony.
                   </p>
@@ -143,15 +162,16 @@ const Index = () => {
               </Card>
             </div>
 
-            <Card className="constitution-section">
+            {/* Government Structure */}
+            <Card className="constitution-section animate-fade-in-up delay-400">
               <CardHeader>
-                <CardTitle className="text-2xl stellar-text">Government Structure</CardTitle>
-                <CardDescription>A balance of imperial wisdom and democratic representation</CardDescription>
+                <CardTitle className="heading-primary stellar-text">Government Structure</CardTitle>
+                <CardDescription className="body-base">A balance of imperial wisdom and democratic representation</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-lg font-semibold mb-4 text-stellar-400">Executive Branch</h3>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+                  <div className="space-y-4">
+                    <h3 className="text-fluid-lg font-semibold text-stellar-400">Executive Branch</h3>
                     <ul className="space-y-2 text-sm text-foreground/80">
                       <li>• Emperor/Empress (33-year terms)</li>
                       <li>• Celestial Council (9-13 members)</li>
@@ -159,8 +179,8 @@ const Index = () => {
                       <li>• Elder Advisors (former Emperors)</li>
                     </ul>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-4 text-cosmic-400">Legislative Branch</h3>
+                  <div className="space-y-4">
+                    <h3 className="text-fluid-lg font-semibold text-cosmic-400">Legislative Branch</h3>
                     <ul className="space-y-2 text-sm text-foreground/80">
                       <li>• Senate of Free Peoples</li>
                       <li>• One delegate per million citizens</li>
@@ -174,8 +194,9 @@ const Index = () => {
           </TabsContent>
 
           <TabsContent value="constitution">
-            <ScrollArea className="h-[800px] w-full">
-              <div className="space-y-8">
+            <ScrollArea className="h-[600px] sm:h-[700px] lg:h-[800px] w-full">
+              <div className="space-y-6 sm:space-y-8 pr-4">
+                {/* Constitution articles using existing component with enhanced responsiveness */}
                 <ConstitutionArticle
                   title="Article I – Core Principles"
                   icon={<Star className="w-6 h-6" />}
@@ -301,58 +322,57 @@ const Index = () => {
             </ScrollArea>
           </TabsContent>
 
-          <TabsContent value="hierarchy">
-            <div className="space-y-8">
-              <HierarchySection
-                title="The Guardian Order"
-                icon={<Shield className="w-6 h-6 text-stellar-400" />}
-                description="Philosopher-warriors dedicated to protecting constitutional harmony"
-                ranks={[
-                  "Grand Master of Harmony – Supreme head, custodian of doctrine and ethics",
-                  "Masters of the Order – Lead regional Temples and train senior Guardians",
-                  "Knight Protectors – Full members sworn to the Oath of Harmony",
-                  "Sentinels – Mid-level Guardians specializing in intelligence, diplomacy, or protection",
-                  "Inquisitive Apprentices – Trainees learning philosophy, ethics, and foundational defense",
-                  "Novitiates – Initiates undergoing evaluation for formal apprenticeship"
-                ]}
-              />
+          <TabsContent value="hierarchy" className="space-y-6 sm:space-y-8">
+            {/* Hierarchy sections using enhanced component */}
+            <HierarchySection
+              title="The Guardian Order"
+              icon={<Shield className="w-6 h-6 text-stellar-400" />}
+              description="Philosopher-warriors dedicated to protecting constitutional harmony"
+              ranks={[
+                "Grand Master of Harmony – Supreme head, custodian of doctrine and ethics",
+                "Masters of the Order – Lead regional Temples and train senior Guardians",
+                "Knight Protectors – Full members sworn to the Oath of Harmony",
+                "Sentinels – Mid-level Guardians specializing in intelligence, diplomacy, or protection",
+                "Inquisitive Apprentices – Trainees learning philosophy, ethics, and foundational defense",
+                "Novitiates – Initiates undergoing evaluation for formal apprenticeship"
+              ]}
+            />
 
-              <HierarchySection
-                title="Imperial Military Command"
-                icon={<Zap className="w-6 h-6 text-cosmic-400" />}
-                description="Defenders of the Dominion across all worlds and star systems"
-                ranks={[
-                  "Supreme Commander of Forces – Answers directly to the Emperor",
-                  "Fleet Admirals / Field Marshals – Command entire starfleets or planetary defense theaters",
-                  "Fleet Captains / General Officers – Lead individual capital ships or army corps",
-                  "Lieutenant Commanders / Senior Officers – Tactical leaders of squadrons, brigades, or regiments",
-                  "Lieutenants / Junior Officers – Unit-level command (platoons, starfighter wings)",
-                  "Enlisted Guardians / Soldiers – Front-line forces: Pilots, Ship Crews, Marine Corps, Armored Divisions, Support Corps"
-                ]}
-              />
+            <HierarchySection
+              title="Imperial Military Command"
+              icon={<Zap className="w-6 h-6 text-cosmic-400" />}
+              description="Defenders of the Dominion across all worlds and star systems"
+              ranks={[
+                "Supreme Commander of Forces – Answers directly to the Emperor",
+                "Fleet Admirals / Field Marshals – Command entire starfleets or planetary defense theaters",
+                "Fleet Captains / General Officers – Lead individual capital ships or army corps",
+                "Lieutenant Commanders / Senior Officers – Tactical leaders of squadrons, brigades, or regiments",
+                "Lieutenants / Junior Officers – Unit-level command (platoons, starfighter wings)",
+                "Enlisted Guardians / Soldiers – Front-line forces: Pilots, Ship Crews, Marine Corps, Armored Divisions, Support Corps"
+              ]}
+            />
 
-              <HierarchySection
-                title="Imperial Rangers & Police Forces"
-                icon={<Badge className="w-6 h-6 text-stellar-400" />}
-                description="Keepers of peace and order across frontier and urban territories"
-                ranks={[
-                  "Commissioner of Peace – Head of all civil enforcement agencies",
-                  "Chief Ranger / Chief Inspector – Regional leads for Rangers (frontier) or Police (urban)",
-                  "Ranger Captains / Police Commanders – Oversee companies or precincts",
-                  "Ranger Lieutenants / Detective Sergeants – Lead patrols, investigations, and specialized units",
-                  "Rangers / Patrol Officers – Frontier law enforcement, environmental protection",
-                  "Constables / Junior Patrols – Entry-level civic security, community engagement",
-                  "Civic Marshals – Trained negotiators and emergency response liaisons"
-                ]}
-              />
-            </div>
+            <HierarchySection
+              title="Imperial Rangers & Police Forces"
+              icon={<Badge className="w-6 h-6 text-stellar-400" />}
+              description="Keepers of peace and order across frontier and urban territories"
+              ranks={[
+                "Commissioner of Peace – Head of all civil enforcement agencies",
+                "Chief Ranger / Chief Inspector – Regional leads for Rangers (frontier) or Police (urban)",
+                "Ranger Captains / Police Commanders – Oversee companies or precincts",
+                "Ranger Lieutenants / Detective Sergeants – Lead patrols, investigations, and specialized units",
+                "Rangers / Patrol Officers – Frontier law enforcement, environmental protection",
+                "Constables / Junior Patrols – Entry-level civic security, community engagement",
+                "Civic Marshals – Trained negotiators and emergency response liaisons"
+              ]}
+            />
           </TabsContent>
 
-          <TabsContent value="principles">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <Card className="constitution-section cosmic-glow">
+          <TabsContent value="principles" className="space-y-6 sm:space-y-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+              <Card className="card-feature animate-fade-in-up">
                 <CardHeader>
-                  <CardTitle className="stellar-text">Founding Philosophy</CardTitle>
+                  <CardTitle className="stellar-text heading-secondary">Founding Philosophy</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
@@ -380,9 +400,9 @@ const Index = () => {
                 </CardContent>
               </Card>
 
-              <Card className="constitution-section cosmic-glow">
+              <Card className="card-feature animate-fade-in-up delay-200">
                 <CardHeader>
-                  <CardTitle className="stellar-text">Technological Safeguards</CardTitle>
+                  <CardTitle className="stellar-text heading-secondary">Technological Safeguards</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
@@ -412,13 +432,14 @@ const Index = () => {
               </Card>
             </div>
 
-            <Card className="constitution-section mt-8">
+            {/* Earth's Failures section */}
+            <Card className="constitution-section animate-fade-in-up delay-300">
               <CardHeader>
-                <CardTitle className="stellar-text text-2xl">Avoiding Earth's Failures</CardTitle>
-                <CardDescription>How the Starborn Dominion addresses historical political failures</CardDescription>
+                <CardTitle className="stellar-text heading-primary">Avoiding Earth's Failures</CardTitle>
+                <CardDescription className="body-base">How the Starborn Dominion addresses historical political failures</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   <div className="space-y-4">
                     <h4 className="font-semibold text-stellar-400">Historical Problems</h4>
                     <ul className="space-y-2 text-sm text-foreground/80">

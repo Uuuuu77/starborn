@@ -16,20 +16,30 @@ interface ConstitutionArticleProps {
 
 const ConstitutionArticle = ({ title, icon, sections }: ConstitutionArticleProps) => {
   return (
-    <Card className="constitution-section cosmic-glow">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-3 text-xl stellar-text">
-          <span className="text-stellar-400">{icon}</span>
-          {title}
+    <Card className="card-interactive animate-fade-in-up">
+      <CardHeader className="pb-4">
+        <CardTitle className="flex items-start gap-3 heading-secondary">
+          <span className="text-stellar-400 flex-shrink-0 mt-1">{icon}</span>
+          <span className="leading-tight">{title}</span>
         </CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pt-0">
         <div className="space-y-6">
           {sections.map((section, index) => (
-            <div key={index}>
-              <h4 className="font-semibold text-cosmic-400 mb-3">{section.title}</h4>
-              <p className="text-foreground/80 leading-relaxed">{section.content}</p>
-              {index < sections.length - 1 && <Separator className="mt-4" />}
+            <div 
+              key={index}
+              className="animate-fade-in-up"
+              style={{ animationDelay: `${index * 150}ms` }}
+            >
+              <h4 className="font-semibold text-cosmic-400 mb-3 text-fluid-lg">
+                {section.title}
+              </h4>
+              <p className="text-foreground/85 leading-relaxed body-base">
+                {section.content}
+              </p>
+              {index < sections.length - 1 && (
+                <Separator className="mt-6 bg-border/50" />
+              )}
             </div>
           ))}
         </div>

@@ -60,11 +60,28 @@
       radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
       radial-gradient(circle at 50% 50%, rgba(16, 16, 20, 0.9) 0%, transparent 100%);
   }
+
+  /* Improved focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Better text rendering */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
 }
 
 @layer components {
   .cosmic-glow {
-    @apply shadow-lg shadow-cosmic-500/20 border border-cosmic-500/30;
+    @apply shadow-lg shadow-cosmic-500/20 border border-cosmic-500/30 hover:shadow-xl hover:shadow-cosmic-500/30 transition-all duration-300;
   }
   
   .stellar-text {
@@ -76,28 +93,120 @@
   }
   
   .constitution-section {
-    @apply bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg p-6 hover:bg-card/70 transition-all duration-300;
+    @apply bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg hover:bg-card/70 transition-all duration-300;
   }
   
   .nav-link {
     @apply relative text-foreground/80 hover:text-foreground transition-colors duration-200 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
   }
+
+  /* Enhanced responsive containers */
+  .container-fluid {
+    @apply w-full px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-8 sm:py-12 lg:py-16;
+  }
+
+  /* Typography utilities */
+  .heading-display {
+    @apply text-fluid-6xl font-bold tracking-tight;
+  }
+
+  .heading-primary {
+    @apply text-fluid-4xl font-bold tracking-tight;
+  }
+
+  .heading-secondary {
+    @apply text-fluid-2xl font-semibold tracking-tight;
+  }
+
+  .body-large {
+    @apply text-fluid-lg leading-relaxed;
+  }
+
+  .body-base {
+    @apply text-fluid-base leading-relaxed;
+  }
+
+  /* Card variants */
+  .card-interactive {
+    @apply constitution-section hover:scale-[1.02] hover:shadow-2xl hover:shadow-cosmic-500/25 cursor-pointer transform transition-all duration-300;
+  }
+
+  .card-feature {
+    @apply bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-md border border-border/30 rounded-xl p-6 hover:border-border/60 transition-all duration-300;
+  }
+
+  /* Grid systems */
+  .grid-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8;
+  }
+
+  .grid-hero {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center;
+  }
+
+  /* Animation delays for staggered effects */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar with improved styling */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
   background: hsl(var(--muted));
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: hsl(var(--primary));
   border-radius: 4px;
+  transition: background 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--primary)/0.8);
+}
+
+::-webkit-scrollbar-corner {
+  background: hsl(var(--muted));
+}
+
+/* Print styles for constitution content */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .constitution-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }
