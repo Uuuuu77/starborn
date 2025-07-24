@@ -1,17 +1,18 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Crown, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
+import { useThrottledScroll } from '@/hooks/useThrottledScroll';
 
 interface NavigationProps {
   activeSection: string;
   setActiveSection: (section: string) => void;
 }
 
-const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
+const Navigation = ({ activeSection, setActiveSection }: NavigationProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const isScrolled = useThrottledScroll({ threshold: 20, delay: 16 });
 
   const navigationItems = [
     { id: 'overview', label: 'Overview' },
@@ -20,14 +21,6 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
     { id: 'principles', label: 'Principles' },
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

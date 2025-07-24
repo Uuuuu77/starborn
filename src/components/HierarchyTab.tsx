@@ -2,7 +2,7 @@
 import { Shield, Zap, Badge } from 'lucide-react';
 import HierarchySection from '@/components/HierarchySection';
 
-const HierarchyTab = () => {
+const HierarchyTab = (): JSX.Element => {
   return (
     <div className="space-y-6 sm:space-y-8">
       <HierarchySection

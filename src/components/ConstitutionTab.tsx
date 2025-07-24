@@ -3,7 +3,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Star, Crown, Users, Gavel, Globe, Shield } from 'lucide-react';
 import ConstitutionArticle from '@/components/ConstitutionArticle';
 
-const ConstitutionTab = () => {
+const ConstitutionTab = (): JSX.Element => {
   return (
     <ScrollArea className="h-[600px] sm:h-[700px] lg:h-[800px] w-full">
       <div className="space-y-6 sm:space-y-8 pr-4">

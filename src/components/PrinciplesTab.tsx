@@ -1,16 +1,19 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { DominionCard } from '@/components/ui/DominionCard';
 
-const PrinciplesTab = () => {
+const PrinciplesTab = (): JSX.Element => {
   return (
     <div className="space-y-6 sm:space-y-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-        <Card className="card-feature animate-fade-in-up">
-          <CardHeader>
-            <CardTitle className="stellar-text heading-secondary">Founding Philosophy</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
+        <DominionCard
+          title="Founding Philosophy"
+          variant="feature"
+          animationDelay={0}
+          className="stellar-text"
+        >
+          <div className="space-y-4">
             <div>
               <h4 className="font-semibold text-stellar-400 mb-2">Balance of Power</h4>
               <p className="text-sm text-foreground/80">
@@ -33,14 +36,16 @@ const PrinciplesTab = () => {
                 Every citizen has inalienable dignity, rights, and purpose—from AI to human to hybrid beings.
               </p>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </DominionCard>
 
-        <Card className="card-feature animate-fade-in-up delay-200">
-          <CardHeader>
-            <CardTitle className="stellar-text heading-secondary">Technological Safeguards</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
+        <DominionCard
+          title="Technological Safeguards"
+          variant="feature"
+          animationDelay={200}
+          className="stellar-text"
+        >
+          <div className="space-y-4">
             <div>
               <h4 className="font-semibold text-cosmic-400 mb-2">Open Ledger System</h4>
               <p className="text-sm text-foreground/80">
@@ -64,12 +69,12 @@ const PrinciplesTab = () => {
                 before being enacted across the Dominion.
               </p>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </DominionCard>
       </div>
 
       {/* Earth's Failures section */}
-      <Card className="constitution-section animate-fade-in-up delay-300">
+      <Card className="constitution-section animate-fade-in-up" style={{ animationDelay: '300ms' }}>
         <CardHeader>
           <CardTitle className="stellar-text heading-primary">Avoiding Earth's Failures</CardTitle>
           <CardDescription className="body-base">How the Starborn Dominion addresses historical political failures</CardDescription>
