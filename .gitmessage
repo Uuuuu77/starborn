@@ -1,0 +1,33 @@
+# Starborn Dominion Commit Message Template
+#
+# Type(scope): brief description of changes
+#
+# Longer description explaining what and why vs. how
+# - What problem this solves
+# - Why this approach was chosen
+# - Any breaking changes or important notes
+#
+# Types aligned with Starborn project:
+# feat:     New constitutional articles, UI components, or features
+# fix:      Bug fixes in navigation, animations, or responsive design
+# docs:     Updates to constitutional content or component documentation
+# style:    Cosmic theme adjustments, Tailwind utility updates
+# refactor: Component restructuring while preserving design system
+# test:     Adding tests for constitutional display logic
+# chore:    Dependencies, build configuration, or tooling updates
+#
+# Scope examples:
+# constitution, hierarchy, principles, navigation, ui, cosmic, stellar
+#
+# Examples:
+# feat(constitution): add new governance hierarchy display component
+# fix(navigation): resolve mobile menu stellar animation timing
+# docs(principles): update technological safeguards documentation
+# style(cosmic): enhance glassmorphism effects for card components
+# refactor(ui): consolidate stellar-text gradient implementations
+#
+# Remember:
+# - Use imperative mood ("add" not "added")
+# - Keep first line under 50 characters
+# - Reference constitutional theme where relevant
+# - Maintain cosmic/stellar naming conventions

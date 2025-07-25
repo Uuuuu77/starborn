@@ -232,19 +232,27 @@ We welcome contributions to the Starborn Dominion project! Please follow these g
 
 ### Getting Started
 1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Make your changes following our coding standards
-4. Test your changes thoroughly
-5. Commit your changes: `git commit -m 'Add amazing feature'`
-6. Push to the branch: `git push origin feature/amazing-feature`
-7. Open a Pull Request
+2. Read our **[Contributing Guidelines](CONTRIBUTING.md)** - Essential for all contributors
+3. Review **[Code Style Guide](CODE_STYLE.md)** - Understand our coding standards
+4. Check **[Documentation](docs/)** - Comprehensive development guides
+5. Create a feature branch: `git checkout -b feature/amazing-feature`
+6. Make your changes following our standards
+7. Test thoroughly and commit using our [commit message template](.gitmessage)
+8. Push and open a Pull Request
 
-### Code Standards
-- **TypeScript**: All new code should be written in TypeScript
+### Development Standards
+- **TypeScript**: All new code must be written in TypeScript
 - **Components**: Use functional components with hooks
-- **Styling**: Follow the established design system
+- **Styling**: Follow the established cosmic design system
 - **Accessibility**: Ensure all components are accessible
 - **Testing**: Include tests for new functionality
+
+### Documentation
+- **[Contributing Guide](CONTRIBUTING.md)** - Complete workflow and standards
+- **[Code Style Guide](CODE_STYLE.md)** - Detailed formatting and documentation
+- **[Development Docs](docs/)** - Comprehensive guides and references
+- **[Component Architecture](docs/component-architecture.md)** - Design patterns
+- **[Design System](docs/design-system.md)** - Cosmic aesthetic guidelines
 
 ## 📄 License
 
