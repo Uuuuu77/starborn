@@ -3,6 +3,39 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Star, Crown, Users, Gavel, Globe, Shield } from 'lucide-react';
 import ConstitutionArticle from '@/components/ConstitutionArticle';
 
+/**
+ * ConstitutionTab - Interactive constitutional articles display
+ * 
+ * Renders the complete Starborn Dominion Constitution with all six articles.
+ * Features scrollable content area with cosmic-themed icons and structured sections.
+ * Each article covers different aspects of the post-Earth governmental framework.
+ * 
+ * @component
+ * @example
+ * <ConstitutionTab />
+ * 
+ * @accessibility
+ * - Scrollable area with proper keyboard navigation
+ * - Semantic heading structure for screen readers
+ * - High contrast text meeting WCAG standards
+ * - Focus management within scroll area
+ * 
+ * @structure
+ * - Article I: Core Principles (Supremacy, Rights, Balance)
+ * - Article II: The Emperor (Leadership, Terms, Powers)
+ * - Article III: Celestial Council (Composition, Selection, Duties)
+ * - Article IV: Senate (Representation, Authority, Sessions)
+ * - Article V: Planetary Governors (Elections, Jurisdiction, Oversight)
+ * - Article VI: Guardian Order (Mandate, Training, Restrictions)
+ * 
+ * @design
+ * - Responsive scroll area with cosmic styling
+ * - Stellar icons representing each governmental branch
+ * - Consistent spacing and typography hierarchy
+ * - Interactive scroll behavior with smooth transitions
+ * 
+ * @returns {JSX.Element} Complete constitutional framework display
+ */
 const ConstitutionTab = (): JSX.Element => {
   return (
     <ScrollArea className="h-[600px] sm:h-[700px] lg:h-[800px] w-full">

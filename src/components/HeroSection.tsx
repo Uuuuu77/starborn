@@ -2,7 +2,39 @@
 import { Crown, Star, Users, Shield, Gavel } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
-const HeroSection = () => {
+/**
+ * HeroSection - Landing page hero component with cosmic theming
+ * 
+ * Displays the main Starborn Dominion title, constitutional quote, and principle badges.
+ * Features responsive cosmic background animations and stellar pulse effects.
+ * Maintains the constitutional theme throughout all text content.
+ * 
+ * @component
+ * @example
+ * <HeroSection />
+ * 
+ * @accessibility
+ * - Proper heading hierarchy with h1 element
+ * - Semantic badge structure with descriptive icons
+ * - Animated elements respect prefers-reduced-motion
+ * - High contrast cosmic color palette meets WCAG 2.1 AA standards
+ * - Focus management for interactive elements
+ * 
+ * @performance
+ * - Uses CSS transforms for smooth animations
+ * - Optimized background gradients for mobile devices
+ * - Hardware-accelerated stellar animation effects
+ * - Responsive layout prevents horizontal scroll
+ * 
+ * @design
+ * - Implements Starborn design system tokens
+ * - Features cosmic color palette with stellar accents
+ * - Fluid typography scales across all viewport sizes
+ * - Glassmorphism effects with backdrop blur
+ * 
+ * @returns {JSX.Element} Hero section with constitutional branding
+ */
+const HeroSection = (): JSX.Element => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-cosmic-950/20 via-cosmic-900/40 to-background"></div>

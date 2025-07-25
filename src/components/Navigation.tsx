@@ -5,11 +5,56 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { useThrottledScroll } from '@/hooks/useThrottledScroll';
 
+/**
+ * Navigation component properties
+ */
 interface NavigationProps {
+  /** Currently active section identifier */
   activeSection: string;
+  /** Callback function to update the active section */
   setActiveSection: (section: string) => void;
 }
 
+/**
+ * Navigation - Responsive navigation component with cosmic theming
+ * 
+ * Provides main navigation for the Starborn Dominion constitutional framework.
+ * Features responsive design with mobile sheet navigation and desktop menu.
+ * Includes throttled scroll performance optimization and stellar animations.
+ * 
+ * @component
+ * @example
+ * <Navigation 
+ *   activeSection="constitution"
+ *   setActiveSection={setActiveSection}
+ * />
+ * 
+ * @param {NavigationProps} props - Navigation configuration
+ * @param {string} props.activeSection - Currently active section
+ * @param {function} props.setActiveSection - Section update callback
+ * 
+ * @accessibility
+ * - Full keyboard navigation support
+ * - Proper ARIA labels for screen readers
+ * - Focus-visible states with cosmic ring effects
+ * - Mobile menu with proper heading structure
+ * - Semantic button elements for interactions
+ * 
+ * @performance
+ * - Throttled scroll listener with 16ms delay for 60fps
+ * - Hardware-accelerated animations and transitions
+ * - Optimized backdrop blur effects
+ * - Responsive layout prevents layout shifts
+ * 
+ * @design
+ * - Stellar branding with Crown icon and cosmic colors
+ * - Glassmorphism effects with backdrop blur
+ * - Animated underlines for desktop navigation
+ * - Mobile-first responsive design patterns
+ * - Consistent with Starborn design system
+ * 
+ * @returns {JSX.Element} Navigation component with responsive behavior
+ */
 const Navigation = ({ activeSection, setActiveSection }: NavigationProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
   const isScrolled = useThrottledScroll({ threshold: 20, delay: 16 });
