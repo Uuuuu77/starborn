@@ -5,11 +5,58 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { useThrottledScroll } from '@/hooks/useThrottledScroll';
 
+/**
+ * NavigationProps - Properties for the Navigation component
+ * 
+ * @interface NavigationProps
+ * @property {string} activeSection - Currently active navigation section identifier
+ * @property {(section: string) => void} setActiveSection - Function to update active section
+ */
 interface NavigationProps {
   activeSection: string;
   setActiveSection: (section: string) => void;
 }
 
+/**
+ * Navigation - Responsive navigation component for the Starborn Dominion interface
+ * 
+ * Provides fixed-position navigation with cosmic theming and stellar animations.
+ * Features adaptive background blur and transparency based on scroll position.
+ * Implements mobile-responsive design with slide-out menu for smaller screens.
+ * 
+ * Features:
+ * - Throttled scroll detection for performance optimization
+ * - Dynamic background effects (backdrop-blur, transparency)
+ * - Mobile-responsive with Sheet component for small screens
+ * - Stellar animation effects on logo hover
+ * - Smooth scroll-to-top functionality
+ * - Accessible navigation with proper ARIA labels
+ * 
+ * Design System Integration:
+ * - Uses stellar-text gradient for logo styling
+ * - Implements nav-link class for interactive navigation items
+ * - Follows cosmic color palette with stellar-400 and cosmic-400
+ * - Responsive spacing and typography scaling
+ * - Consistent hover effects with stellar-pulse animation
+ * 
+ * @param {NavigationProps} props - Component properties
+ * @param {string} props.activeSection - Currently active section for highlighting
+ * @param {(section: string) => void} props.setActiveSection - Section change handler
+ * 
+ * @returns {JSX.Element} Fixed navigation with responsive mobile menu
+ * 
+ * @example
+ * <Navigation 
+ *   activeSection="constitution" 
+ *   setActiveSection={setActiveSection} 
+ * />
+ * 
+ * @accessibility
+ * - ARIA labels for navigation actions
+ * - Keyboard navigation support
+ * - Screen reader compatible with proper semantic structure
+ * - Focus-visible states for keyboard users
+ */
 const Navigation = ({ activeSection, setActiveSection }: NavigationProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
   const isScrolled = useThrottledScroll({ threshold: 20, delay: 16 });

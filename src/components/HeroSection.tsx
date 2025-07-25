@@ -2,6 +2,46 @@
 import { Crown, Star, Users, Shield, Gavel } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
+/**
+ * HeroSection - Landing section for the Starborn Dominion Constitution
+ * 
+ * Creates an immersive cosmic introduction to the constitutional framework with
+ * animated background elements and stellar visual effects. Features a full-screen
+ * hero layout with gradient overlays, animated cosmic elements, and responsive
+ * design for all device sizes.
+ * 
+ * Features:
+ * - Full viewport height with cosmic gradient background
+ * - Animated stellar elements with staggered pulse effects
+ * - Responsive typography using fluid sizing system
+ * - Interactive badges with hover effects
+ * - Constitutional monarchy themes with cosmic iconography
+ * - Smooth fade-in animations with progressive delays
+ * 
+ * Design System Integration:
+ * - Uses heading-display class for fluid responsive typography
+ * - Implements stellar-text and cosmic color schemes
+ * - Follows animate-fade-in-up pattern with proper delays
+ * - Maintains container-fluid and section-padding spacing
+ * - Incorporates stellar-pulse and cosmic-drift animations
+ * 
+ * Visual Elements:
+ * - Animated background with cosmic-950/20 to background gradient
+ * - Four positioned stellar elements with pulse animations
+ * - Crown and Star icons with cosmic-themed colors
+ * - Badge system highlighting constitutional principles
+ * 
+ * @returns {JSX.Element} Immersive hero section with constitutional introduction
+ * 
+ * @example
+ * <HeroSection />
+ * 
+ * @accessibility
+ * - Semantic HTML structure with proper heading hierarchy
+ * - Descriptive content explaining constitutional principles
+ * - Badge components with icon-text combinations for clarity
+ * - Reduced motion support through CSS media queries
+ */
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
